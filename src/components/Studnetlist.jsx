@@ -29,7 +29,7 @@ export default function Studnetlist() {
     console.log("success");
 
     try {
-      await axios.post("http://localhost:5006/api/student", { name, rollnum });
+      await axios.post("https://studentprobackend-iipv.vercel.app/api/student", { name, rollnum });
       alert("student added");
       setinputdata("");
       getallstudent();
@@ -44,7 +44,7 @@ export default function Studnetlist() {
 
   // GETALL STUDENT START END
   const getallstudent = async () => {
-    const { data } = await axios.get("http://localhost:5006/api/student");
+    const { data } = await axios.get("https://studentprobackend-iipv.vercel.app/api/student");
     setstudentlist(data);
   };
   console.log(studentlist);
@@ -53,7 +53,7 @@ export default function Studnetlist() {
   // delte studnet
   const handledelete = async (id) => {
     console.log(id);
-    await axios.delete(`http://localhost:5006/api/student/${id}`);
+    await axios.delete(`https://studentprobackend-iipv.vercel.app/api/student/${id}`);
     getallstudent()
 
     // setstudentlist(filterdata);
@@ -63,7 +63,7 @@ export default function Studnetlist() {
   // toggle
   const handletoggle = async (student) => {
   const res = await axios.put(
-    `http://localhost:5006/api/student/${student._id}/attdence`,
+    `https://studentprobackend-iipv.vercel.app/api/student/${student._id}/attdence`,
   );
 
   const updated = studentlist.map((s) =>
